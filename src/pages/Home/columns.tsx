@@ -1,8 +1,19 @@
+import dayjs from "dayjs";
+
+import * as S from "./styles";
+
 export const columns = [
   {
     accessorKey: "created",
     header: "created",
-    cell: (info: any) => <>{info.getValue()}</>,
+    cell: (info: any) => (
+      <S.Date>
+        {dayjs(info.getValue()).format("MMMM")}{" "}
+        {dayjs(info.getValue()).format("D")}
+        {", "}
+        {dayjs(info.getValue()).format("YYYY")}
+      </S.Date>
+    ),
   },
   {
     accessorKey: "gender",
@@ -12,7 +23,19 @@ export const columns = [
   {
     accessorKey: "name",
     header: "name",
-    cell: (info: any) => <>{info.getValue()}</>,
+    cell: (info: any) => {
+      return (
+        <S.Name>
+          <img
+            src={info.row.original.image}
+            width="30px"
+            height="30px"
+            style={{ borderRadius: "50%" }}
+          />
+          {info.getValue()}
+        </S.Name>
+      );
+    },
   },
   {
     accessorKey: "id",

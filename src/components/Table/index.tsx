@@ -7,6 +7,7 @@ import {
 
 import { TableProps } from "./types";
 
+import * as S from "./styles";
 const Table = ({
   data,
   columns,
@@ -27,37 +28,35 @@ const Table = ({
   });
 
   return (
-    <div>
-      <table>
-        <tbody>
-          {getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-        <tbody>
-          {getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <th key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <S.Table>
+      <tbody>
+        {getHeaderGroups().map((headerGroup) => (
+          <tr key={headerGroup.id}>
+            {headerGroup.headers.map((header) => (
+              <th key={header.id}>
+                {header.isPlaceholder
+                  ? null
+                  : flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
+              </th>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+      <tbody>
+        {getRowModel().rows.map((row) => (
+          <tr key={row.id}>
+            {row.getVisibleCells().map((cell) => (
+              <S.StyledTh key={cell.id}>
+                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+              </S.StyledTh>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </S.Table>
   );
 };
 
