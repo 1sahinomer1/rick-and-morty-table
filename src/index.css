@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+
 /* https://meyerweb.com/eric/tools/css/reset/ */
 html,
 body,
@@ -103,6 +105,7 @@ section {
 }
 body {
   line-height: 1;
+  font-family: "DM Sans", sans-serif;
 }
 ol,
 ul {
