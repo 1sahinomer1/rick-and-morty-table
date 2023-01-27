@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAllCharacters } from "../../api/characters/api";
+
+import { getAllCharacters } from "~/api/characters/api";
 
 import { AllCharacterResponse } from "./types";
 
