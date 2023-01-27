@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { StatusBadge } from "./Row";
 
 import * as S from "./styles";
 
@@ -50,6 +51,6 @@ export const columns = [
   {
     accessorKey: "status",
     header: "status",
-    cell: (info: any) => <>{info.getValue()}</>,
+    cell: (info: any) => <>{StatusBadge(info.getValue())}</>,
   },
 ];
